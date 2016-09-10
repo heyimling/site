@@ -42,7 +42,6 @@ preload: false
 <!-- End fancyBox -->
 </head>
 <body id="top">
-<!-- 想再換好看一點的字體 -->
 <!-- Header -->
 <header id="header">
   <div class="square img-circle" style="margin-bottom:1em">
@@ -87,26 +86,6 @@ preload: false
     <p>
     <img src= "image/robot/body.png" class= "center-block" alt= "Responsive image" style="height: 40%; width: 40%"/>
     </p>
-  </section>
-  <section id="engineering">
-    <h2>Engineering</h2>
-    <p>As an engineer,.....</p>
-    {% for eng in engs %}
-    {% block eng %}
-    <div class="row">
-      <div style="font-size: 15px">
-        <a href= "{{eng["id"]}}">
-          <span class="image left thumb"style="overflow: hidden; height: 145px;">
-            <img src="{{escape(eng["cover"])}}" alt="" class="img-rounded"  />
-        </span></a>
-        <p>{{escape(eng["description"])}}</p>
-      </div>
-    </div><br>
-    {% end %}
-    {% end %}
-    <ul class="actions">
-      <li><a href="ee_1.html" class="button">More</a></li>
-    </ul>
   </section>
   <section id="drawings">
     <h2> Drawings </h2>
@@ -183,10 +162,6 @@ preload: false
             </li>
 
           </ul>
-        </div>
-        <div class="col-md-6 col-xs-12">
-          <a href="CV.pdf" class="img fit image thumb fancybox" data-fancybox-type="iframe">
-            <img src="image/CV.png" style="height:40; width: 100%; border: solid 1.5px #87CEFA; border-radius: 10px; padding:5px;"></a>
         </div>
       </section>
     </div>
