@@ -1,0 +1,40 @@
+@media screen and (min-width: 992px){
+  .cover{
+      position: relative;
+      width: 40%;
+      float: left;
+      margin: 0 0.8em 0 0 ;
+      padding: 1px 1px;
+  }
+  .nav-sidebar>li>a{
+    text-align: right;
+  }
+}
+@media screen and (max-width: 992px){
+  .cover{
+      position: relative;
+      width: 100%;
+      margin: 0 ;
+      padding: 1px 1px;
+  }
+  .nav-sidebar>li>a{
+    text-align: center;
+  }
+}
+nav,.navbar,.navbar-collapse {
+   background-color: transparent;
+   background: transparent;
+   border-color: transparent;
+   border:0;
+   box-shadow: none !important;
+   -webkit-box-shadow: none !important;
+} 
+.cover-img{
+  margin: 5px;
+}
+.cover-row1{
+	padding: 2px;
+}
+.cover-row2{
+  padding: 10px 0 2px 2px;
+}
