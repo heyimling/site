@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Add jQuery library -->
+<meta charset="UTF-8">
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript">
+var $= jQuery.noConflict();
+</script>
+<!-- Latest compiled and minified CSS -->
+<link rel="shortcut icon" href="image/robot/icon.png">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- <link rel="stylesheet" href="html5up-striped/assets/css/main.css" />-->
+<link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/ling_style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--<script src="assets/js/jquery/poptrox.min.js"></script> -->
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<!-- fontawsome-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="assets/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="assets/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $(".fancybox").fancybox({
+openEffect: 'none',
+closeEffect: 'none',
+iframe:{
+preload: false
+}
+});
+    });
+</script>
+<!-- End fancyBox -->
+</head>
+<body id="top">
+<!-- 想再換好看一點的字體 -->
+<!-- Header -->
+<header id="header">
+  <div class="square img-circle" style="margin-bottom:1em">
+    <img src="image/profile.jpg" class="img-responsive"/>
+  </div>
+  <div class= "container-fluid">
+    <div class= "row">
+      <div>
+        <h3><strong>Hey! I am Ling</strong>, a person has a dream taller than herself.</h3>
+      </div>
+      <nav class="navbar navbar-default col-md-12 col-xs-12">
+        <div class= "container-fluid">
+          <div class="navbar-header">
+            <div class="btn collapsed navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </div>
+
+          </div>
+          <div id="navbar-collapse-1" class="collapse navbar-collapse">
+            <ul class="nav nav-sidebar">
+              <li><a href="#">
+                <div class="glyphicon glyphicon-home" aria-hidden="true"> Ling </div>
+              </a></li>
+              <li><a href="#engineering"> Engineering </a></li>
+              <li><a href="#drawings"> Drawings </a></li>
+              <li><a href="#photos"> Photos </a></li>
+              <li><a href="#five"> Contacts </a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- Main -->
+<div id="main">
+  <section id="s1">
+    <p><img src="image/robot/Ling.png" class="center-block" alt="responsive image" style="height: 12%; width: 12%"></p>
+    <p>
+    <img src= "image/robot/body.png" class= "center-block" alt= "Responsive image" style="height: 40%; width: 40%"/>
+    </p>
+  </section>
+  <section id="engineering">
+    <h2>Engineering</h2>
+    <p>As an engineer,.....</p>
+    {% for eng in engs %}
+    {% block eng %}
+    <div class="row">
+      <div style="font-size: 15px">
+        <a href= "{{eng["id"]}}">
+          <span class="image left thumb"style="overflow: hidden; height: 145px;">
+            <img src="{{escape(eng["cover"])}}" alt="" class="img-rounded"  />
+        </span></a>
+        <p>{{escape(eng["description"])}}</p>
+      </div>
+    </div><br>
+    {% end %}
+    {% end %}
+    <ul class="actions">
+      <li><a href="ee_1.html" class="button">More</a></li>
+    </ul>
+  </section>
+  <section id="drawings">
+    <h2> Drawings </h2>
+    <div class="container-fluid">
+
+      <div class="row">
+
+        {% for i in range(3) %}
+        {% block i %}
+        <div class="col-md-4 col-sm-12 col-xs-12">
+          {% for j in range(i,len(drawings),3)%}
+          {% block j %}
+          <div class="drawing">
+            <a href="{{escape(drawings[j]["src"])}}" class="img fit image thumb fancybox">
+              <img src="{{escape(drawings[j]["src"])}}" class="img-size" alt="" />
+            </a>
+          </div>
+          {% end %}
+          {% end %}
+        </div>
+        {% end %}
+        {% end %}
+
+      </div>
+      <ul class="actions">
+        <li><a href="draw_1.html" class="button">More</a></li>
+      </ul>
+    </section>
+    <section id="photos">
+      <h2>Photos</h2>
+      <div class="container-fluid">
+        <div class="row">
+          {% for article in articles %}
+          {% block article %}
+          <div class="12u$">
+            <a href="article_1.html" >
+              <div class="image thumb article-cover">
+                <img class="img-responsive" src="{{escape(article["cover-photo"])}}" style="margin-top:{{escape(article["cover-position"])}}%;" />
+            </div></a>
+            <div class="center"><strong>{{escape(article["title"])}}</strong>
+              <br><em>{{escape(article["description"])}}</em></div>
+          </div>
+          {% end %}
+          {% end %}
+        </div>
+      </div>
+
+      <ul class="actions">
+        <li><a href="article_1.html" class="button">More</a></li>
+      </ul>
+    </section>
+
+    <section id="five">
+      <h2>Contacts</h2>
+      <div class="row">
+        <div class="col-md-6 col-xs-12">
+          <p>Hello, you can contact me in these following ways:</p>
+          <ul class="labeled-icons">
+            <li>
+            <h3 class="icon fa-mobile"><span class="label">Phone</span></h3>
+            +886-910-922-336
+            </li>
+            <li>
+            <h3 class="icon fa-envelope-o"><span class="label">E-mail</span></h3>
+            <a href="#">weiling0207@gmail.com</a>
+            </li>
+            <li><!--FB icon -->
+            <h3 class="icon fa-facebook"><span class="label">FB page</span></h3>
+            <a href="http://www.facebook.com/lingsdrawing">FB page</a>
+            </li>
+            <li><!--blog icon -->
+            <h3 class=" glyphicon glyphicon-sunglasses" aria-hidden="true"></h3>
+            <a href="http://lingherlife.blogspot.tw">My blog</a>
+            </li>
+
+          </ul>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <a href="CV.pdf" class="img fit image thumb fancybox" data-fancybox-type="iframe">
+            <img src="image/CV.png" style="height:40; width: 100%; border: solid 1.5px #87CEFA; border-radius: 10px; padding:5px;"></a>
+        </div>
+      </section>
+    </div>
+
+    <footer id="footer">
+      <div>
+        <a href="https://www.linkedin.com/pub/wei-ling-wu/102/21/436" class="col-md-offset-8 col-md-1 fa fa-linkedin"></a> 
+        <a href="index.html">
+          <div class="col-md-1 glyphicon glyphicon-home" aria-hidden="true">  </div>
+        </a>
+      </div>
+    </footer>
+    </body>
+    </html>
